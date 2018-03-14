@@ -1,0 +1,20 @@
+<%= form_tag("/posts/create") do %>
+          <li class="media list-group-item p-4">
+          
+          <div class="input-group">
+            <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+            <input type="text" class="form-control" placeholder="Ask Matt" name="content">
+            <div class="input-group-btn">
+              <button type="submit" value="post" class="btn btn-secondary align-self-stretch">
+                <span >Ask</span>
+              </button>
+              
+            </div>
+            
+          </div>
+          <%end%>
+        </li>

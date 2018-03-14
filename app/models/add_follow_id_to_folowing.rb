@@ -1,0 +1,2 @@
+class AddFollowIdToFolowing < ApplicationRecord
+end

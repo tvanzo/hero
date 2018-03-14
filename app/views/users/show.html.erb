@@ -1,0 +1,72 @@
+<div class="col-lg-6 center">
+<h2 ><%=@user.first_name%></h2>
+<%if @user.image!=nil%>
+          <img class="media-object d-flex align-self-start mr-3 center" src="<%=@user.image%>">
+          <%else%>
+          <%=image_tag("user.png",:id => "profile-page-pic") %>
+          <%end%>
+   
+     <% @user.posts.each do |post| %>
+        
+        <% @likes_count = Like.where(post_id: post.id).count%>
+        <li class="media list-group-item p-4">
+         <!--
+          <img
+            class="media-object d-flex align-self-start mr-3 rounded-circle"
+            src="
+            -->
+            
+          <div class="media-body">
+            
+              
+             
+          <h1><%= link_to(post.content, "/posts/#{post.id}", class: "h4")%></h1>               
+              <p>
+                 <%if post.user.image!=nil%>
+                 <img class="rounded-circle dimension35" src="<%=post.user.image%>">
+                 <%end%>
+                 <%= link_to(post.user.first_name, "/users/#{post.user.id}", class:"h6") %>
+                 <small class="text-muted">asked <%=distance_of_time_in_words(post.created_at,Time.now)%></small>
+              </p>
+              
+              
+                
+                
+                
+                
+                <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+        <!-- Rewrite the following line to a link to the "destroy" action -->
+        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart like-btn-unlike float-right"><%=@likes_count%></span>
+        <%end%>
+      <% else %>
+       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
+        <span class="fa fa-heart like-btn float-right"><%=@likes_count%></span>
+      <%end%>
+      
+      <%end%>
+      
+      <%if post.answer!=nil%>
+            <ul class="media-list mb-2">
+              <li class="media mb-3">
+                
+                 
+              <div class="posts_pic"></div>
+                
+                <div class="media-body" id="answer_cont_marg">
+                 
+                  <strong>  &nbsp  &nbsp<%=User.find_by(id: post.answer.user_id).first_name%> </strong> 
+                  <%=post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(post.answer.created_at,Time.now)%></small>
+                </div>
+              </li>
+            </ul>
+                            <%end%>
+
+           
+          </div>
+        </li>
+        <%end%>
+
+      </ul>
+    </div>
+  </div>

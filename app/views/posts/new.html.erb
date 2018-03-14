@@ -1,0 +1,25 @@
+<div class="col-lg-6">
+
+      <ul class="list-group media-list media-list-stream mb-4">
+          <%= form_tag("/posts/create") do %>
+          
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          
+          <textarea name="content"><%= @post.content %></textarea>
+          <input type="submit" value="Post">
+        </div>
+      </div>
+    <% end %>
+    
+        
+        </ui>
+</div>
+
+
+

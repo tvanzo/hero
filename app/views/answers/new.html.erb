@@ -1,0 +1,43 @@
+<div class="col-lg-6">
+
+      <ul class="list-group media-list media-list-stream mb-4">
+
+<li class="media list-group-item p-4">
+          <%if @post.user.image!=nil%>
+                 <img class="rounded-circle dimension35" src="<%=@post.user.image%>">
+                 <%end%>
+          <div class="media-body">
+            <div class="media-body-text">
+              <div class="media-heading">
+                <small class="float-right text-muted"><%=@post.created_at%></small>
+              <%= link_to(@post.user.first_name, "/users/#{@post.user.id}") %>
+              </div>
+              <p>
+               <%= link_to(@post.content, "/posts/#{@post.id}")%>
+              </p>
+             
+            </div>
+          </div>
+        </li>
+        
+        <%= form_tag("/answer/#{params[:id]}/create") do %>
+        <li class="media list-group-item p-4">
+          
+          <div class="input-group">
+            
+            
+       
+            <input type="text" size="200" class="form-control" placeholder="Answer" name="content">
+            
+            <div class="input-group-btn">
+              <button type="submit" value="post" class="btn btn-secondary align-self-stretch">
+                <span>Answer</span>
+              </button>
+              
+            </div>
+            
+          </div>
+        <%end%>
+        </li>
+        </ul>
+        </div>

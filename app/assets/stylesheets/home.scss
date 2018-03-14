@@ -1,0 +1,23 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.cccs {
+    width: 80%;
+    height: 200px;
+    background: aqua;
+    margin: auto;
+    padding: 10px;
+}
+.one {
+    width: 50%;
+    height: 400px;
+    background: red;
+    float: left;
+    background-image: url("matt.png");
+
+}
+.two {
+    margin-left: 15%;
+    height: 200px;
+    background: black;
+}

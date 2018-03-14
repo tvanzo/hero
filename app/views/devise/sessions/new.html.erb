@@ -1,0 +1,69 @@
+<body>
+    
+<div id="back">
+  
+<div class="container2">
+	<div class="left">
+	  
+	  <span class=" p-b-34">
+	    <h1 id="blue_title" >Wenmee</h1></br><p id="motto">
+	      The place to ask questions and interact with your favorite Youtubers.
+	    </p>
+	    </span>
+	    <span class="login100-form-title p-t-50">
+						Featuring
+					</span>
+	    <div id="pics">
+<%=image_tag("jayoe.png")%>
+<%=image_tag("serpentza.png")%>
+<%=image_tag("cmilk.png")%>
+<%=image_tag("prozzie.png")%>
+
+	      
+
+
+
+	    </div>
+</div>
+	<div class="right">
+	<div class="formBox">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<span class="login100-form-title p-b-20 p-t-43">
+						Account Login
+					</span>
+	
+					
+  <div class="wrap-input100">
+    
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", :id => 'first-name', :class=>"input100", placeholder: "Email"%>
+  </div>
+  <div class="wrap-input100">
+    
+    <%= f.password_field :password, autocomplete: "off", :class=>'input100', placeholder: "******" %>
+  </div>
+    <div id="selection">
+  
+
+  <div class="container-login100-form-btn">
+    <%= f.submit 'Sign in', :class => 'login100-form-btn' %>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class => 'login100-form-btn loginBtn--google' %>
+  </div>
+  
+  
+  
+ <p class="float-left"><%= render "devise/shared/links" %></p> 
+  
+
+						
+				
+
+<%= link_to("Sign Up", "/users/sign_up", :class => 'txt3 float-right pt-1') %>
+			
+		
+<% end %>
+
+</div>
+</div>
+</div>
+</div>
+</body>

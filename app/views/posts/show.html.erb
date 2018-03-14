@@ -1,0 +1,135 @@
+<div class="col-lg-6 center">
+
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+            <ul class="list-group media-list media-list-stream mb-4">
+
+
+        
+        
+        <% @likes_count = Like.where(post_id: @post.id).count%>
+        <li class="media list-group-item p-4">
+         <!--
+          <img
+            class="media-object d-flex align-self-start mr-3 rounded-circle"
+            src="
+            -->
+            
+          <div class="media-body">
+            
+              
+             
+          <h1><%= link_to(@post.content, "/posts/#{@post.id}", class: "h4")%></h1>               
+              <p>
+                 <%if @post.user.image!=nil%>
+                 <img class="rounded-circle dimension35" src="<%=@post.user.image%>">
+                 <%end%>
+                 <%= link_to(@post.user.first_name, "/users/#{@post.user.id}", class:"h6") %>
+                 <small class="text-muted">asked <%=distance_of_time_in_words(@post.created_at,Time.now)%></small>
+              </p>
+              
+              
+                
+                
+                
+                
+                <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+        <!-- Rewrite the following line to a link to the "destroy" action -->
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart like-btn-unlike float-right"><%=@likes_count%></span>
+        <%end%>
+      <% else %>
+       <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do%>
+        <span class="fa fa-heart like-btn float-right"><%=@likes_count%></span>
+      <%end%>
+      
+      <%end%>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+            <ul class="media-list mb-2">
+               <%= form_tag("/posts/#{params[:id]}/comment") do %>
+        <li class="media  p-4">
+          
+          <div class="input-group">
+            
+            
+       
+            <input type="text" size="200" class="form-control" placeholder="Message" name="content">
+            <div class="input-group-btn">
+              <button type="submit" value="content" class="btn btn-secondary align-self-stretch">
+                <span class="icon icon-camera"></span>
+              </button>
+              
+            </div>
+            
+          </div>
+        <%end%>
+        </li>
+              
+              <li class="media mb-3">
+                
+                 
+              <div class="posts_pic"></div>
+                
+                <div class="media-body" id="answer_cont_marg">
+                 
+                  <strong>  &nbsp  &nbsp<%=User.find_by(id: @post.answer.user_id).first_name%> </strong> 
+                  <%=@post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(@post.answer.created_at,Time.now)%></small>
+                </div>
+              </li>
+              
+              
+              
+              
+                               <%@post.comments.each do |comment| %>
+
+              <li class="media mb-3">
+                
+              <div class="posts_pic"></div>
+                
+                <div class="media-body" id="answer_cont_marg">
+                 
+                  <strong>  &nbsp  &nbsp<%=User.find_by(id: comment.user_id).first_name%> </strong> 
+                  <%=comment.content %> <small class="text-muted">commented <%=distance_of_time_in_words(comment.created_at,Time.now)%></small>
+                </div>
+              </li>
+              <%end%>
+            </ul>
+            
+           
+          </div>
+        </li>
+        
+        
+      </ul>
+      
+      
+      
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+
+  
