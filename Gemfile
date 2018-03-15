@@ -38,7 +38,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-    gem 'sqlite3', '1.3.13'
+  gem 'sqlite3', '1.3.13'
 
 end
 
@@ -60,4 +60,6 @@ gem 'font-awesome-sass'
 gem 'omniauth-google-oauth2'
 gem 'paperclip', '~> 4.1'
 gem 'jquery-rails'
-
+group :production do
+  gem 'pg', '0.20.0'
+end
