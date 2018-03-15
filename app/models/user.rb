@@ -14,9 +14,7 @@ class User < ApplicationRecord
          return Like.where(user_id: self.id)
         end
         
-        def following
-            return Following.where(follower_id: self.id)
-        end
+       
         
         def self.from_omniauth(access_token)
     data = access_token.info
