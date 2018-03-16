@@ -352,6 +352,7 @@
         <%end%>
       <% else %>
        <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
+       
         <span class="fa fa-heart like-btn float-right"><%=@likes_count%></span>
       <%end%>
       
@@ -360,8 +361,7 @@
       
             <ul class="media-list mb-2">
               <li class="media mb-3">
-                
-                 
+
               <div class="<%=User.find_by(id: post.answer.user_id).first_name%>_answer"></div>
                 
                 <div class="media-body" id="answer_cont_marg">
@@ -377,7 +377,8 @@
         </li>
         <%end%>
         <%end%>
-        
+                        <%=image_tag("cmilk.png")%>
+
       </ul>
     </div>
     
