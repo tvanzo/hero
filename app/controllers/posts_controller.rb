@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
   
-    @following=Following.where(follower_id:current_user.id)
+   
      @posts=Post.all.order(created_at: :desc)
     @post=Post.new
 
