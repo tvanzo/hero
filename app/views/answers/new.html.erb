@@ -1,43 +1,106 @@
-<div class="col-lg-6">
 
-      <ul class="list-group media-list media-list-stream mb-4">
+        
+        
+        
+        
+        
+        
+        
+        <div class="col-lg-6 center">
 
-<li class="media list-group-item p-4">
-          <%if @post.user.image!=nil%>
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+            <ul class="list-group media-list media-list-stream mb-4 mt-3">
+
+
+        
+        
+        <% @likes_count = Like.where(post_id: @post.id).count%>
+        <li class="media list-group-item p-4">
+         <!--
+          <img
+            class="media-object d-flex align-self-start mr-3 rounded-circle"
+            src="
+            -->
+            
+          <div class="media-body">
+            
+              
+             
+          <h1><%= link_to(@post.content, "/posts/#{@post.id}", class: "h4")%></h1>               
+              <p>
+                 <%if @post.user.image!=nil%>
                  <img class="rounded-circle dimension35" src="<%=@post.user.image%>">
                  <%end%>
-          <div class="media-body">
-            <div class="media-body-text">
-              <div class="media-heading">
-                <small class="float-right text-muted"><%=@post.created_at%></small>
-              <%= link_to(@post.user.first_name, "/users/#{@post.user.id}") %>
-              </div>
-              <p>
-               <%= link_to(@post.content, "/posts/#{@post.id}")%>
+                 <%= link_to(@post.user.first_name, "/users/#{@post.user.id}", class:"h6") %>
+                 <small class="text-muted">asked <%=distance_of_time_in_words(@post.created_at,Time.now)%></small>
               </p>
-             
-            </div>
-          </div>
-        </li>
-        
-        <%= form_tag("/answer/#{params[:id]}/create") do %>
-        <li class="media list-group-item p-4">
+              
+              
+                
+                
+                
+      
+      
+      
+      
+      
+      
+      
+      
+      
+            <ul class="media-list mb-2">
+               <%= form_tag("/answer/#{params[:id]}/create") do %>
+        <li class="media  p-4">
           
           <div class="input-group">
             
             
        
-            <input type="text" size="200" class="form-control" placeholder="Answer" name="content">
+            <textarea type="text" cols="20" rows="4" class="form-control" placeholder="Answer" name="content"></textarea>
             
-            <div class="input-group-btn">
-              <button type="submit" value="post" class="btn btn-secondary align-self-stretch">
+           
+            
+          </div>
+        
+        </li>
+         <div class="input-group-btn center tt" >
+               <button type="submit" value="post" class="btn btn-secondary center" id="answer_position">
                 <span>Answer</span>
               </button>
               
             </div>
+              <%end%>
+             
+            </ul>
             
+           
           </div>
-        <%end%>
         </li>
-        </ul>
-        </div>
+        
+        
+      </ul>
+      
+      
+      
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+
+  

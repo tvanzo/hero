@@ -8610,3 +8610,8 @@ html {
 .mt-15{
   margin-top:23px;
 }
+#answer_position{
+  margin-left:83%;
+  border-radius:2px;
+}
+
