@@ -344,19 +344,7 @@
                 
                 
                 
-                
-                <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-        <!-- Rewrite the following line to a link to the "destroy" action -->
-        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
-        <span class="fa fa-heart like-btn-unlike float-right"><%=@likes_count%></span>
-        <%end%>
-      <% else %>
-       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
-       
-        <span class="fa fa-heart like-btn float-right"><%=@likes_count%></span>
-      <%end%>
-      
-      <%end%>
+               
       
       
             <ul class="media-list mb-2">
@@ -368,13 +356,31 @@
                  
                   <strong>  &nbsp  &nbsp<%=User.find_by(id: post.answer.user_id).first_name%> </strong> 
                   <%=post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(post.answer.created_at,Time.now)%></small>
+                    
+                
                 </div>
+                  
+               
               </li>
+              
             </ul>
             
            
           </div>
+           <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+        <!-- Rewrite the following line to a link to the "destroy" action -->
+        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart heart like-btn-unlike float-right"><%=@likes_count%></span>
+        <%end%>
+      <% else %>
+       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
+       
+        <span class="fa fa-heart heart like-btn float-right"><%=@likes_count%></span>
+      <%end%>
+      
+      <%end%>
         </li>
+        
         <%end%>
         <%end%>
 
