@@ -327,19 +327,7 @@
                 
                 
                 
-                
-                <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-        <!-- Rewrite the following line to a link to the "destroy" action -->
-        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
-        <span class="fa fa-heart like-btn-unlike float-right"><%=@likes_count%></span>
-        <%end%>
-      <% else %>
-       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
-        <span class="fa fa-heart like-btn float-right"><%=@likes_count%></span>
-      <%end%>
-      
-      <%end%>
-      
+               
       
             <ul class="media-list mb-2">
               <li class="media mb-3">
@@ -350,13 +338,26 @@
                 <div class="media-body" id="answer_cont_marg">
                  
                   <strong>  &nbsp  &nbsp<%=User.find_by(id: post.answer.user_id).first_name%> </strong> 
-                  <%=post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(post.answer.created_at,Time.now)%></small>
+                  <%=post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(post.answer.created_at,Time.now)%>ago<% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+        <!-- Rewrite the following line to a link to the "destroy" action -->
+        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart heart like-btn-unlike float-right"><%=@likes_count%></span>
+        <%end%>
+      <% else %>
+       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
+       
+        <span class="fa fa-heart heart like-btn float-right"><%=@likes_count%></span>
+      <%end%>
+      
+      <%end%></small>
                 </div>
+              
               </li>
             </ul>
             
            
           </div>
+           
         </li>
         <%end%>
         <%end%>
@@ -378,24 +379,7 @@
 
       
 
-      <div class="card card-link-list">
-        <div class="card-body">
-          © 2018 Bootstrap
-          <a href="#">About</a>
-          <a href="#">Help</a>
-          <a href="#">Terms</a>
-          <a href="#">Privacy</a>
-          <a href="#">Cookies</a>
-          <a href="#">Ads </a>
-          <a href="#">Info</a>
-          <a href="#">Brand</a>
-          <a href="#">Blog</a>
-          <a href="#">Status</a>
-          <a href="#">Apps</a>
-          <a href="#">Jobs</a>
-          <a href="#">Advertise</a>
-        </div>
-      </div>
+     
     </div>
   </div>
 </div>

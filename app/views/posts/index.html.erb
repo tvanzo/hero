@@ -349,13 +349,24 @@
       
             <ul class="media-list mb-2">
               <li class="media mb-3">
-
-              <div class="<%=User.find_by(id: post.answer.user_id).first_name%>_answer"></div>
-                
+               
+              <a href="/<%=User.find_by(id: post.answer.user_id).first_name%>" class="<%=User.find_by(id: post.answer.user_id).first_name%>_answer"></a>
+             
                 <div class="media-body" id="answer_cont_marg">
                  
                   <strong>  &nbsp  &nbsp<%=User.find_by(id: post.answer.user_id).first_name%> </strong> 
-                  <%=post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(post.answer.created_at,Time.now)%></small>
+                  <%=post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(post.answer.created_at,Time.now)%> ago<% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+        <!-- Rewrite the following line to a link to the "destroy" action -->
+        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart heart like-btn-unlike float-right"><%=@likes_count%></span>
+        <%end%>
+      <% else %>
+       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
+       
+        <span class="fa fa-heart heart like-btn float-right"><%=@likes_count%></span>
+      <%end%>
+      
+      <%end%></small>
                     
                 
                 </div>
@@ -367,18 +378,7 @@
             
            
           </div>
-           <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-        <!-- Rewrite the following line to a link to the "destroy" action -->
-        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
-        <span class="fa fa-heart heart like-btn-unlike float-right"><%=@likes_count%></span>
-        <%end%>
-      <% else %>
-       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
-       
-        <span class="fa fa-heart heart like-btn float-right"><%=@likes_count%></span>
-      <%end%>
-      
-      <%end%>
+          
         </li>
         
         <%end%>
