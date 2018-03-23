@@ -8622,6 +8622,7 @@ html {
   border-radius:2px;
 }
 
-#pics{
+.pics{
   max-width: 100%;
+  max-height: 100%;
 }
