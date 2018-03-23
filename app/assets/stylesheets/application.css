@@ -192,9 +192,10 @@ body{
 }
 .container2{
   
-  width:700px;
+  width:65%;
   height:500px;
-
+  min-width: 500px;
+  max-width:700px;
   margin:0 auto;
   border: 2px solid black;
   border-radius:10px;
@@ -370,4 +371,6 @@ body{
           background:url("cmilk_profile.jpg");
      background-size: cover;
 }
-]
+* {
+    box-sizing: border-box;
+}
