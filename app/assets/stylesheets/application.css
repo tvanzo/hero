@@ -216,6 +216,8 @@ body{
 
 .container2 .left img{
   width:37%;
+  height:37%;
+  overflow:auto;
 }
 #motto{
   color:#9ba2a7;
