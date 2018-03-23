@@ -190,7 +190,19 @@ body{
   padding:40px;
 
 }
-
+.container2{
+  overflow: hidden;
+  width:65%;
+  height:500px;
+  min-width: 500px;
+  max-width:500px;
+  margin:0 auto;
+  border: 2px solid black;
+  border-radius:10px;
+  padding:0 0 0 0;
+  box-shadow: 0 15px 40px rgba(0,0,0,.8);
+  position:relative;
+}
 
 .container2 .left{
   background:rgba(255,255,255,1);
