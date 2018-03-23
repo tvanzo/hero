@@ -192,9 +192,10 @@ body{
 }
 .container2{
   
-  width:700px;
+  width:60%;
   height:500px;
-  max-width:500px;
+  
+  max-height:;
   margin:0 auto;
   border: 2px solid black;
   border-radius:10px;
