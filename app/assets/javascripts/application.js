@@ -20,17 +20,15 @@
 /* global $ */
 
 
-
-
-
-$( document ).click(function() {
- $(".error").fadeOut(2000);
-});
-
 $(document).ready( function() {// When the Dom is ready
     $(".alert").fadeOut(2000); //Add a fade out effect that will last for 2000 millisecond
     
 
 });
+
+
+
+
+
 
 
