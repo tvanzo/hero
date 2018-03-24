@@ -8155,11 +8155,11 @@ img.zoom-img {
 .media,
 .media-body {
   overflow: visible;
-  word-wrap: break-word;}
-  
-.media H1{
-  word-wrap: break-word;
-}
+ }
+  H1{
+     word-wrap: break-word;
+  }
+
 
 .avatar-list {
   list-style: none;
