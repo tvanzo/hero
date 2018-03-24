@@ -8153,7 +8153,7 @@ img.zoom-img {
 
 .media,
 .media-body {
-  overflow: visible; }
+  overflow: hidden; }
 
 .avatar-list {
   list-style: none;
