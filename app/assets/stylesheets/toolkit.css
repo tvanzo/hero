@@ -369,12 +369,14 @@ h6, .h6 {
   line-height: 1.1; }
 
 .post-1 {
-  font-size: 1.5rem;
-  line-height: 1.1; 
+  font-size: 1.4rem;
+  line-height: 1.6; 
    font-weight: 800;
    word-wrap: break-word;
 
 }
+
+
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
