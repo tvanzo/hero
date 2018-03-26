@@ -372,6 +372,7 @@ h6, .h6 {
   font-size: 1.5rem;
   line-height: 1.1; 
    font-weight: 800;
+   word-wrap: break-word;
   
 }
 hr {
@@ -8156,10 +8157,6 @@ img.zoom-img {
 .media-body {
   overflow: visible;
  }
-  H1{
-     word-wrap: break-word;
-  }
-
 
 .avatar-list {
   list-style: none;
