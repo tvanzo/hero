@@ -331,7 +331,7 @@
             
               
              
-          <h1><%= link_to(post.content, "/posts/#{post.id}", class: "h4")%></h1>               
+          <h1 class="word-wrap"><%= link_to(post.content, "/posts/#{post.id}", class: "h4")%></h1>               
               <p>
                  <%if post.user.image!=nil%>
                  <img class="rounded-circle dimension35" src="<%=post.user.image%>">

@@ -91,7 +91,7 @@
                 <div class="media-body" id="answer_cont_marg">
                  
                   <strong>  &nbsp  &nbsp<%=User.find_by(id: @post.answer.user_id).first_name%> </strong> 
-                  <%=@post.answer.content %> <small class="text-muted">answered <%=distance_of_time_in_words(@post.answer.created_at,Time.now)%></small>
+                  <span class="word-wrap"><%=@post.answer.content %></span> <small class="text-muted">answered <%=distance_of_time_in_words(@post.answer.created_at,Time.now)%></small>
                 </div>
               </li>
               
