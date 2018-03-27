@@ -64,25 +64,6 @@
       
       
             <ul class="media-list mb-2">
-               <%= form_tag("/posts/#{params[:id]}/comment") do %>
-        <li class="media  p-4">
-          
-          <div class="input-group">
-            
-            
-       
-            <input type="text" size="200" class="form-control" placeholder="Message" name="content">
-            <div class="input-group-btn">
-              <button type="submit" value="content" class="btn btn-secondary align-self-stretch">
-                <span class="icon icon-camera"></span>
-              </button>
-              
-            </div>
-            
-          </div>
-        <%end%>
-        </li>
-              
               <li class="media mb-3">
                 
                  
@@ -94,6 +75,27 @@
                   <span class="word-wrap"><%=@post.answer.content %></span> <small class="text-muted">answered <%=distance_of_time_in_words(@post.answer.created_at,Time.now)%></small>
                 </div>
               </li>
+              
+               <%= form_tag("/posts/#{params[:id]}/comment") do %>
+        <li class="media  p-4">
+          
+          <div class="input-group">
+            
+            
+       
+            <input type="text" size="200" class="form-control" placeholder="Message" name="content">
+            <div class="input-group-btn">
+              <button type="submit" value="content" class="btn btn-secondary align-self-stretch">
+                <span>Comment</span>
+              </button>
+              
+            </div>
+            
+          </div>
+        <%end%>
+        </li>
+              
+              
               
               
               
@@ -128,20 +130,4 @@
     
     
     
-    
-    
-   <div class="input-group">
-            
-            
-       
-            <textarea type="text" cols="20" rows="4" class="form-control" placeholder="Answer" name="content"></textarea>
-            
-            
-            
-          </div>
-          <div class="input-group-btn float-left" >
-               <button type="submit" value="post" class="btn btn-secondary float-left">
-                <span>Answer</span>
-              </button>
-              
-            </div>
+  

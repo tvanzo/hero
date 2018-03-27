@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
       post_id: post
     )
     if @comment.save
-        redirect_to("/posts")
+        redirect_to request.referrer
     end
 end
 end
