@@ -105,16 +105,20 @@
               
                                <%@post.comments.each do |comment| %>
 
-              <li class="media mb-3">
+              <li class="media mb-3 text-left">
                 
               <%if User.find_by(id: comment.user_id).image!=nil%>
-                 <img class="rounded-circle dimension35" src="<%=User.find_by(id: comment.user_id).image%>">
+            <%=image_tag('https://lh5.googleusercontent.com/-jCevNf0olwE/AAAAAAAAAAI/AAAAAAAA2Mw/iCZIuq0Nz1o/photo.jpg', :class=>"rounded-circle dimension35 mt-3")%>
+                <%else%>
+                 
+                 <%=image_tag("female.png", :class => "rounded-circle dimension35 mt-3")%>
                  <%end%>
+
                 
                 <div class="media-body" id="answer_cont_marg">
                  
                   <strong>  &nbsp  &nbsp<%=User.find_by(id: comment.user_id).first_name%> </strong> 
-                  <%=comment.content %> <small class="text-muted">commented <%=distance_of_time_in_words(comment.created_at,Time.now)%></small>
+                  <%=comment.content %> <small class="text-muted">commented <%=distance_of_time_in_words(comment.created_at,Time.now)%> ago</small>
                 </div>
               </li>
               <%end%>
