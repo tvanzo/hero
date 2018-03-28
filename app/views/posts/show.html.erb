@@ -29,7 +29,7 @@
             
               
              
-          <h1><%= link_to(@post.content, "/posts/#{@post.id}", class: "h4")%></h1>               
+          <h1 class="word-wrap"><%= link_to(@post.content, "/posts/#{@post.id}", class: "h4")%></h1>               
               <p>
                  <%if @post.user.image!=nil%>
                  <img class="rounded-circle dimension35" src="<%=@post.user.image%>">
@@ -64,17 +64,20 @@
       
       
             <ul class="media-list mb-2">
-              <li class="media mb-3">
+              <%if @post.answer!=nil%>
+              <a href="/<%=User.find_by(id: @post.answer.user_id).first_name%>" class="<%=User.find_by(id: @post.answer.user_id).first_name%>_answer"></a> 
+              
+<li class="media mb-3">
                 
                  
-              <div class="posts_pic"></div>
-                
+<a href="/<%=User.find_by(id: @post.answer.user_id).first_name%>" class="<%=User.find_by(id: @post.answer.user_id).first_name%>_answer"></a>                
                 <div class="media-body" id="answer_cont_marg">
                  
                   <strong>  &nbsp  &nbsp<%=User.find_by(id: @post.answer.user_id).first_name%> </strong> 
                   <span class="word-wrap"><%=@post.answer.content %></span> <small class="text-muted">answered <%=distance_of_time_in_words(@post.answer.created_at,Time.now)%></small>
                 </div>
               </li>
+              <%end%>
               
                <%= form_tag("/posts/#{params[:id]}/comment") do %>
         <li class="media  p-4">
@@ -104,7 +107,9 @@
 
               <li class="media mb-3">
                 
-              <div class="posts_pic"></div>
+              <%if User.find_by(id: comment.user_id).image!=nil%>
+                 <img class="rounded-circle dimension35" src="<%=User.find_by(id: comment.user_id).image%>">
+                 <%end%>
                 
                 <div class="media-body" id="answer_cont_marg">
                  
