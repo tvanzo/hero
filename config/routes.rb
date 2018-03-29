@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   post "likes/:post_id/create"=>"likes#create"
  post "likes/:post_id/destroy" => "likes#destroy"
  
+ post "likes_comments/:comment_id/create"=>"likes_comments#create"
+ post "likes_comments/:comment_id/destroy" => "likes_comments#destroy"
+ 
+ 
  post 'posts/:id/comment' =>"comments#create"
  
  

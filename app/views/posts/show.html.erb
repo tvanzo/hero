@@ -104,7 +104,7 @@
               
               
                                <%@post.comments.each do |comment| %>
-
+              <% @likes_count = LikeComment.where(comment_id: comment.id).count%>
               <li class="media mb-3 text-left">
                 
               <%if User.find_by(id: comment.user_id).image!=nil%>
@@ -119,6 +119,23 @@
                  
                   <strong>  &nbsp  &nbsp<%=User.find_by(id: comment.user_id).first_name%> </strong> 
                   <%=comment.content %> <small class="text-muted">commented <%=distance_of_time_in_words(comment.created_at,Time.now)%> ago</small>
+                  
+                  
+                  <% if LikeComment.find_by(user_id: current_user.id, comment_id: comment.id) %>
+        <!-- Rewrite the following line to a link to the "destroy" action -->
+        <%= link_to("/likes_comments/#{comment.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart heart like-btn-unlike float-right"><%=@likes_count%></span>
+        <%end%>
+      <% else %>
+       <%= link_to("/likes_comments/#{comment.id}/create", {method: "post"}) do%>
+       
+        <span class="fa fa-heart heart like-btn float-right"><%=@likes_count%></span>
+      <%end%>
+              
+              <%end%>    
+                  
+                  
+                  
                 </div>
               </li>
               <%end%>
