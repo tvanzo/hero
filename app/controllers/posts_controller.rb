@@ -23,6 +23,7 @@ end
   def show
    
      @post = Post.find_by(id: params[:id])
+     @comments= @post.comments.order(created_at: :desc)
      @user = @post.user
      @likes_count = Like.where(post_id: @post.id).count
      @comment=Comment.new

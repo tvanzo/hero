@@ -103,7 +103,7 @@
               
               
               
-                               <%@post.comments.each do |comment| %>
+                               <%@comments.each do |comment| %>
               <% @likes_count = LikeComment.where(comment_id: comment.id).count%>
               <li class="media mb-3 text-left">
                 

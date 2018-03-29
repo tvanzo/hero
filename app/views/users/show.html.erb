@@ -1,5 +1,6 @@
 <div class="col-lg-6 center">
-<h2 ><%=@user.first_name%></h2>
+    <ul class="list-group media-list media-list-stream mb-4 text-left">
+<h2 class="text-center"><%=@user.first_name%></h2>
 <%if @user.image!=nil%>
           <img class="media-object d-flex align-self-start mr-3 center" src="<%=@user.image%>">
           <%else%>
@@ -9,7 +10,7 @@
      <% @user.posts.each do |post| %>
         
         <% @likes_count = Like.where(post_id: post.id).count%>
-        <li class="media list-group-item p-4">
+        <li class="media list-group-item pb-4 px-4 pt-3">
          <!--
           <img
             class="media-object d-flex align-self-start mr-3 rounded-circle"
@@ -33,18 +34,7 @@
                 
                 
                 
-                
-                <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-        <!-- Rewrite the following line to a link to the "destroy" action -->
-        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
-        <span class="fa fa-heart like-btn-unlike float-right"><%=@likes_count%></span>
-        <%end%>
-      <% else %>
-       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
-        <span class="fa fa-heart like-btn float-right"><%=@likes_count%></span>
-      <%end%>
-      
-      <%end%>
+               
       
       <%if post.answer!=nil%>
             <ul class="media-list mb-2">
