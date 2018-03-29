@@ -30,13 +30,11 @@
               
              
           <h1 class="word-wrap"><%= link_to(@post.content, "/posts/#{@post.id}", class: "h4")%></h1>               
-              <p>
-                 <%if @post.user.image!=nil%>
-                 <img class="rounded-circle dimension35" src="<%=@post.user.image%>">
-                 <%end%>
+              
+                
                  <%= link_to(@post.user.first_name, "/users/#{@post.user.id}", class:"h6") %>
                  <small class="text-muted">asked <%=distance_of_time_in_words(@post.created_at,Time.now)%></small>
-              </p>
+           
               
               
                 
@@ -65,7 +63,7 @@
       
             <ul class="media-list mb-2">
               <%if @post.answer!=nil%>
-              <a href="/<%=User.find_by(id: @post.answer.user_id).first_name%>" class="<%=User.find_by(id: @post.answer.user_id).first_name%>_answer"></a> 
+             
               
 <li class="media mb-3">
                 
