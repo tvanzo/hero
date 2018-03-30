@@ -1,0 +1,123 @@
+
+
+<body>
+
+
+
+<div class="container pt-4 pb-5">
+  <div class="row">
+    <div class="col-lg-3">
+                <%= render "shared/leftbar" %>
+
+
+      
+    </div>
+
+    <div class="col-lg-6">
+            <ul class="list-group media-list media-list-stream mb-4">
+
+    
+            <ul><a href=/<%=params[:id]%>><span>Feed </span></a><a href=/<%=params[:id]%>/asked><span> Asked</span></a><a href=/<%=params[:id]%>/wall><span class="text-muted"> Wall</span></a></ul> 
+
+
+      
+      <%= render "shared/ask" %>
+        
+        <% @posts.each do |post| %>
+        <%if post.answer != nil%>
+        <% @likes_count = Like.where(post_id: post.id).count%>
+        <li class="media list-group-item p-4">
+         <!--
+          <img
+            class="media-object d-flex align-self-start mr-3 rounded-circle"
+            src="
+            -->
+            
+          <div class="media-body">
+            
+              
+             
+          <h1 class="word-wrap"><%= link_to(post.content, "/posts/#{post.id}", class: "h4")%></h1>               
+              <p>
+                 <%if post.user.image!=nil%>
+                 <img class="rounded-circle dimension35" src="<%=post.user.image%>">
+                 <%end%>
+                 <%= link_to(post.user.first_name, "/users/#{post.user.id}", class:"h6") %>
+                 <small class="text-muted">asked <%=distance_of_time_in_words(post.created_at,Time.now)%></small>
+              </p>
+              
+              
+                
+                
+                
+               
+      
+            <ul class="media-list mb-2">
+              <li class="media mb-3">
+                
+                 
+              <div class="<%=@youtuber%>_answer"></div>
+                
+                <div class="media-body" id="answer_cont_marg">
+                 
+                  <strong>  &nbsp  &nbsp<%=User.find_by(id: post.answer.user_id).first_name%> </strong> 
+                  <span class="word-wrap"><%=post.answer.content %></span> <small class="text-muted">answered <%=distance_of_time_in_words(post.answer.created_at,Time.now)%> ago<% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+        <!-- Rewrite the following line to a link to the "destroy" action -->
+        <%= link_to("/likes/#{post.id}/destroy", {method: "post"}) do %>
+        <span class="fa fa-heart heart like-btn-unlike float-right"><%=@likes_count%></span>
+        <%end%>
+      <% else %>
+       <%= link_to("/likes/#{post.id}/create", {method: "post"}) do%>
+       
+        <span class="fa fa-heart heart like-btn float-right"><%=@likes_count%></span>
+      <%end%>
+      
+      <%end%></small>
+                </div>
+              
+              </li>
+            </ul>
+            
+           
+          </div>
+           
+        </li>
+        <%end%>
+        <%end%>
+        
+      </ul>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="col-lg-3">
+      
+
+            <%= render "shared/rightbar" %>      
+
+
+      
+
+     
+    </div>
+  </div>
+</div>
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/chart.js"></script>
+    <script src="assets/js/toolkit.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script>
+      // execute/clear BS loaders for docs
+      $(function(){while(window.BS&&window.BS.loader&&window.BS.loader.length){(window.BS.loader.pop())()}})
+    </script>
+  </body>
+
+
+
