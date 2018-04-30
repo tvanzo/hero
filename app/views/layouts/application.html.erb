@@ -70,11 +70,11 @@
         <%= link_to("Home", "/posts", :class =>'nav-link') %>
       </li>
       
-       <li class="nav-item active">
+       <li class="nav-item active d-md-none">
        <%= link_to("Profile", "/users/#{current_user.id}", { :class =>'nav-link'}) %>
       </li>
       
-      <li class="nav-item active">
+      <li class="nav-item  ">
        <%= link_to("Log out", "/users/sign_out", {method: :delete, :class =>'nav-link'}) %>
       </li>
       
