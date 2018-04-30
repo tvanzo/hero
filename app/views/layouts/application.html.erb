@@ -70,19 +70,21 @@
         <%= link_to("Home", "/posts", :class =>'nav-link') %>
       </li>
       
-      
+       <li class="nav-item active">
+       <%= link_to("Profile", "/users/#{current_user.id}", { :class =>'nav-link'}) %>
+      </li>
       
       <li class="nav-item active">
        <%= link_to("Log out", "/users/sign_out", {method: :delete, :class =>'nav-link'}) %>
       </li>
+      
+        
         
       
       
 
      
-      <li class="nav-item d-md-none">
-        <a class="nav-link" href="login/index.html">Logout</a>
-      </li>
+     
 
     </ul>
 
@@ -106,7 +108,9 @@
  <%end%>
     <ul class="nav navbar-nav d-none" id="js-popoverContent">
       <li class="nav-item"><a class="nav-link" href="#" data-action="growl">Growl</a></li>
-      <li class="nav-item"><a class="nav-link" href="login/index.html">Logout</a></li>
+      <li class="nav-item"><a class="nav-link" href="login/index.html"></a></li>
+      
+</li>
     </ul>
   </div>
 </nav>
