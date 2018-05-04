@@ -182,6 +182,12 @@ body{
   
   
 }
+#backm{
+  width:100%;
+  height:100%;
+  background-color:#0099ff;
+  background-size:cover;
+}
 #back{
   width:100%;
   height:100%;
@@ -328,7 +334,7 @@ body{
 
 .blue_title{
   color:#0099ff;
-  font-size: 60px;
+  font-size: 50px;
   margin:0 auto;
   font-family: "Killa";
   margin-left:970;

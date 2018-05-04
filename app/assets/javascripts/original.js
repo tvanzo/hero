@@ -8,6 +8,7 @@ $(document).ready( function() {// When the Dom is ready
 
 $.fn.preventDoubleSubmission = function() {
   $(this).on('submit',function(e){
+    console.log("here I am ");
     var $form = $(this);
 
     if ($form.data('submitted') === true) {
