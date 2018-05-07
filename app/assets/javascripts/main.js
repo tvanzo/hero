@@ -58,7 +58,6 @@
 
 })(jQuery);
 
-document.getElementById("p").innerHTML = "Hello JavaScript!";
 
 $( document ).click(function() {
  $(".error").fadeOut(2000);
