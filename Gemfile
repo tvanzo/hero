@@ -62,6 +62,7 @@ gem 'font-awesome-sass'
 gem 'omniauth-google-oauth2'
 gem 'paperclip', '~> 4.1'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.1'
 group :production do
   gem 'pg', '0.20.0'
 end
