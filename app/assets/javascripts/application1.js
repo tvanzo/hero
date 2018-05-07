@@ -69,7 +69,7 @@ $(document).on('click', '[data-action=growl]', function (e) {
   $('#app-growl').append(
     '<div class="alert alert-dark alert-dismissible fade show" role="alert">'+
       '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'+
-        '<span aria-hidden="true">×</span>'+
+        '<span aria-hidden="true">Ã—</span>'+
       '</button>'+
       'Click the x on the upper right to dismiss this little thing. Or click growl again to show more growls'+
     '</div>'
